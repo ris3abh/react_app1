@@ -7,13 +7,17 @@ import GoalInput from './components/GoalInput';
 export default function App() {
     const [courseGoals ,setCourseGoals] =useState([]);  
 
-  
-
     const addGoalHandler = goalTitle =>{
         setCourseGoals(currentGoals => [...courseGoals,
             {id: Math.random().toString(), value: goalTitle
         }]);
     };
+
+    const removeGoalHandler = goalId =>{
+        setCourseGoals(currentGoals => {
+            return currentGoals.filter((goal) => goal.id != goalId);
+        });
+    }
 
     return (
         <View style={styles.container}>
@@ -23,7 +27,7 @@ export default function App() {
                 data={courseGoals} 
                 keyExtractor={(item ,index) => item.id}
                 renderItem={itemData => 
-                <GoalItem title={itemData.item.value}/>
+                <GoalItem id = {itemData.item.id} onDelete={removeGoalHandler } title={itemData.item.value}/>
             }/>
         </View>
     );
