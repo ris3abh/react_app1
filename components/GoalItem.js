@@ -1,11 +1,11 @@
 import React ,{useState} from 'react';
-import { StyleSheet, Text, View ,FlatList} from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 
 const GoalItem = props => {
 	return(
 		<View style={styles.goalList}>
-        	<Text>{props.title}</Text>
-      	</View>
+    	<Text>{props.title}</Text>
+  	</View>
 	);
 };
 
