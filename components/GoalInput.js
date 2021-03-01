@@ -1,5 +1,5 @@
 import React ,{useState} from 'react';
-import {View ,TextInput ,Button ,StyleSheet} from 'react-native';
+import {View ,TextInput ,Button ,StyleSheet ,Modal} from 'react-native';
 
 const GoalInput = props => {
 	const [enteredGoal ,setEnteredGoal] =useState('');
@@ -7,26 +7,29 @@ const GoalInput = props => {
     setEnteredGoal(enteredText);
   };
 	return(
-		<View style= {styles.fieldOne} >
+    <Modal visible={props.visible} animationType="slide">
+		  <View style= {styles.fieldOne} >
         	<TextInput 
-         		placeholder="COURSE GOAL" 
+         		 placeholder="COURSE GOAL" 
           		style={styles.goalField}
           		onChangeText={goalInputHandler}
           		value={enteredGoal}
         	/>
         	<Button 
-         	 	title="Add Goal" 
+         	 	  title="Add Goal" 
           		style={styles.buttonField}
           		onPress={() => props.onAddGoal(enteredGoal)}
         	/>
     	</View>
+    </Modal>
 	);
 };
 const styles = StyleSheet.create({
 	fieldOne:{
-    	flexDirection:'row' ,
-    	justifyContent:"space-between",
-    	alignItems:"center"
+      flex:1,
+    	justifyContent:"center",
+    	alignItems:"center",
+      marginBottom:10
   	},
   	goalField:{
     	width: '70%',
