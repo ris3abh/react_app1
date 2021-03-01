@@ -15,44 +15,47 @@ const GoalInput = props => {
 
 	return(
     <Modal visible={props.visible} animationType="slide">
-		  <View style= {styles.fieldOne} >
+		<View style= {styles.fieldOne} >
         	<TextInput 
          		 placeholder="COURSE GOAL" 
           		style={styles.goalField}
           		onChangeText={goalInputHandler}
           		value={enteredGoal}
         	/>
-          <Button 
-                title="Cancel" 
-                color= "red"
-                onPress={props.onCancel}
-          />
-        	<Button 
-         	 	title="Add Goal" 
-          		style={styles.buttonField}
-          		onPress={addGoalHandler}
-        	/>
+            <View style={styles.buttonBros}>
+                <Button 
+                    title="Cancel" 
+                    color= "red"
+                    onPress={props.onCancel}
+                />
+                <Button 
+                    title="Add Goal" 
+                    style={styles.buttonField}
+                    onPress={addGoalHandler}
+                /> 
+            </View>
     	</View>
     </Modal>
 	);
 };
 const styles = StyleSheet.create({
 	fieldOne:{
-      flex:1,
+        flex:1,
     	justifyContent:"center",
     	alignItems:"center",
-      marginBottom:10
   	},
   	goalField:{
     	width: '70%',
    	 	borderBottomColor: 'darkgrey' ,
     	borderBottomWidth: 2 ,
+        marginBottom:10,
     	paddingTop:20,
   	},
-  	buttonField:{
-    	borderRadius: 40,
-      marginTop:20,
-  	},	
+    butttonBros:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+    }	
 });
 
 export default GoalInput;
